@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdn.rawgit.com/Alorel/console-log-html/1.2.7/console-log-html.min.js"></script> -->
+  <script type="text/javascript" src="https://cdn.rawgit.com/beatgammit/base64-js/master/base64js.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/Alorel/console-log-html/a40aea9e88bfff88da77b0d4ca2b9903973425c3/console-log-html.min.js"></script>
+
+  <script type="text/javascript" src="./zchristmas_term_project_1.js"></script>
+  <script type="text/javascript" src="./zchristmas_term_project_2.js"></script>
+  <script type="text/javascript" src="./zchristmas_term_project_3.js"></script>
+  <script type="text/javascript" src="./zchristmas_term_project_4.js"></script>
+  <script type="text/javascript" src="./zchristmas_term_project_5.js"></script>
+
+  <style>
+    body {
+      width: 100vw;
+      margin-left: 25px;
+      margin-right: 25px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .graph-container {
+      width: 40vw;
+      height: 20vh;
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-block;
+    }
+
+    .content-container {
+      width: 80vw;
+      height: 20vh;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .margin-top {
+      margin-top: 1em;
+    }
+
+    #outlink {
+      text-decoration: underline;
+    }
+
+    #target {
+      list-style: none;
+      -webkit-padding-start: 0;
+      -webkit-margin-after: 0;
+      -webkit-margin-before: 1em;
+      border: 1px solid #000;
+      overflow-y: auto;
+      width: 100%;
+      background: #333;
+      color: #fff;
+    }
+
+    .tbl {
+      /* display: table; */
+      width: 100%;
+      display: block !important;
+
+      >* {
+        display: table-row;
+
+        >* {
+          display: table-cell;
+
+          &:last-child {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .container {
+      width: 80vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+    var callback = function () {
+      // Handler when the DOM is fully loaded
+
+      // The target <ul>
+      var target = document.getElementById("target"),
+        i = 0;
+
+      // jQuery works too! The result would be the same if you did
+      // ConsoleLogHTML.connect($("#target"))
+      ConsoleLogHTML.connect(target);
+
+      // Remove the "A thing to remember!" notice if we're on a data URL
+      if ("data:" === location.protocol) {
+        var outDiv = document.getElementById("outdiv");
+        outDiv.parentElement.removeChild(outDiv);
+        console.clear();
+      }
+
+      // And some basic styling
+      target.style.maxHeight = "200px";
+
+    };
+
+    if (
+      document.readyState === "complete" ||
+      (document.readyState !== "loading" && !document.documentElement.doScroll)
+    ) {
+      callback();
+    } else {
+      document.addEventListener("DOMContentLoaded", callback);
+    }
+
+  </script>
+  <div class="content-container" style="height: auto;">
+    <h1>Zachary Christmas</h1>
+    <h2>CSE 2300 - Term Project</h2>
+    <p>scroll down to continue... </p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="content-container" style="height: auto;">
+    <h1>Part 1</h1>
+    <p>Program code for 1 </p>
+    <div style="text-align: left;">
+      <p>
+      <pre><code>
+function bubbleSort() {
+  //prompt the user for a number  
+  let input = prompt("Please enter a number");
+  //check for input for integer type 
+  if (input != null || Number.isInteger(prompt)) {
+    //use input to generate array of random integers
+    let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
+    //display unsorted array to user
+    alert(`Unsorted Array: ${unsortedArray}`);
+    //init variables
+    let swapp = false;
+    //set variable for iteration count
+    let n = unsortedArray.length - 1;
+    //declare sorted array variable
+    let sortedArray = unsortedArray;
+    //loop until swapp is switched to false
+    do {
+      //set swapp to false once we are out of the inner loop
+      swapp = false;
+      //begin inner loop
+      for (let i = 0; i < n; i++) {
+        //check if the first element in the selected index is greater than the next
+        if (sortedArray[i] > sortedArray[i + 1]) {
+          //delcare variable to store original value for selected index
+          let arrayIndex = sortedArray[i];
+          //set the current selected index equal to the value of the next one
+          sortedArray[i] = sortedArray[i + 1];
+          //place the original value that was stored in the next selected index (completes the swap)
+          sortedArray[i + 1] = arrayIndex;
+          //set swap to true to continue the outer loop
+          swapp = true;
+        }
+      }
+      //decrement iteration count
+      n--;
+    } while (swapp);
+
+    alert(`Sorted Array: ${sortedArray}`);
+  }
+  else {
+    alert('User input error!');
+  }
+}
+    </code></pre>
+      </p>
+    </div>
+  </div>
+  <div class="content-container" style="height: auto;">
+    <h1>Part 2</h1>
+    <p>Program code for 2 </p>
+    <div style="text-align: left;">
+      <p>
+      <pre><code>    
+
+function selectionSort() {
+  //prompt the user for a number  
+  let input = prompt("Please enter a number");
+  //check for input for integer type 
+  if (input != null || Number.isInteger(prompt)) {
+
+    //use input to generate array of random integers
+    let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
+    //display unsorted array to user
+    alert(`Unsorted Array: ${unsortedArray}`);
+
+    //define compare function for selection sort
+    function compare(a, b) {
+      return a - b;
+    }
+
+    //declare and set starting variables
+    let min = 0;
+    let index = 0;
+    let temp = 0;
+    let sortedArray = unsortedArray;
+
+    //outer loop iterates over array length
+    for (let i = 0; i < sortedArray.length; i += 1) {
+      //store index variable
+      index = i;
+      //assume min value of array equal to current index
+      min = sortedArray[i];
+
+      //inner loop iterates over other elements in array (not the values we have already looped over)
+      for (let j = i + 1; j < sortedArray.length; j += 1) {
+        //compare current index for next lowest value
+        if (compare(min, sortedArray[j]) > 0) {
+          min = sortedArray[j];
+          index = j;
+        }
+      }
+
+      //store the oringal index value 
+      temp = sortedArray[i];
+      //update current index value to next lowest value found in the inner loop
+      sortedArray[i] = min;
+      //swap the stored value with the place of the next lowest value we found
+      sortedArray[index] = temp;
+    }
+
+    alert(`Sorted Array: ${sortedArray}`);
+
+  }
+  else {
+    alert('User input error!');
+  }
+}
+    </code></pre>
+      </p>
+    </div>
+  </div>
+  <div class="content-container" style="height: auto;">
+    <h1>Part 3</h1>
+    <p>Program code for 3 </p>
+    <div style="text-align: left;">
+      <p>
+      <pre><code>   
+
+function bubbleSort2(arraySize, numOfArrays) {
+  console.info(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
+  let total_time = 0;
+  //prompt the user for a number  
+  let input = arraySize
+  //check for input for integer type 
+  if (input != null || Number.isInteger(prompt)) {
+    for (let i = 0; i < numOfArrays; i++) {
+      //use input to generate array of random integers
+      let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
+      //console.log(`Unsorted array #${i + 1}: ${unsortedArray}`);
+      //init variables
+      let swapp = false;
+      //set variable for iteration count
+      let n = unsortedArray.length - 1;
+      //declare sorted array variable
+      let sortedArray = unsortedArray;
+      //init timer
+      let running_time = 0;
+      //start timer
+      let timerStart = performance.now();
+      //loop until swapp is switched to false
+      do {
+        //set swapp to false once we are out of the inner loop
+        swapp = false;
+        //begin inner loop
+        for (let i = 0; i < n; i++) {
+          //check if the first element in the selected index is greater than the next
+          if (sortedArray[i] > sortedArray[i + 1]) {
+            //delcare variable to store original value for selected index
+            let arrayIndex = sortedArray[i];
+            //set the current selected index equal to the value of the next one
+            sortedArray[i] = sortedArray[i + 1];
+            //place the original value that was stored in the next selected index (completes the swap)
+            sortedArray[i + 1] = arrayIndex;
+            //set swap to true to continue the outer loop
+            swapp = true;
+          }
+        }
+        //decrement iteration count
+        n--;
+      } while (swapp);
+      //console.log(`Sorted array #${i + 1}: ${sortedArray}`);
+      //end timer and add it to total
+      let timerEnd = performance.now();
+      running_time = timerEnd - timerStart;
+      total_time += running_time;
+    }
+    console.info(`Bubble Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
+  }
+}
+      
+    </code></pre>
+      </p>
+      <br>
+      <h3>Part 3 Results: </h3>
+      <table class="table table-bordered">
+        <tr>
+          <th>Number Of Items Sorted</th>
+          <th>Average Running Time</th>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>0.6818299996957649 ms</td>
+        </tr>
+        <tr>
+          <td>2500</td>
+          <td>18.600894998962758 ms</td>
+        </tr>
+        <tr>
+          <td>5000</td>
+          <td>81.03417499980424 ms</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="content-container" style="height: auto;">
+    <h1>Part 4</h1>
+    <p>Program code for 4 </p>
+    <div style="text-align: left;">
+      <p>
+      <pre><code>   
+function selectionSort2(arraySize, numOfArrays) {
+  console.info(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
+  let total_time = 0;
+  //prompt the user for a number  
+  let input = arraySize;
+  //check for input for integer type 
+  if (input != null || Number.isInteger(prompt)) {
+    for (let i = 0; i < numOfArrays; i++) {
+      //use input to generate array of random integers
+      let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
+
+      //define compare function for selection sort
+      function compare(a, b) {
+        return a - b;
+      }
+
+      //declare and set starting variables
+      let min = 0;
+      let index = 0;
+      let temp = 0;
+      let sortedArray = unsortedArray;
+
+      //init timer
+      let running_time = 0;
+      //start timer
+      let timerStart = performance.now();
+      //outer loop iterates over array length
+      for (let i = 0; i < sortedArray.length; i += 1) {
+        //store index variable
+        index = i;
+        //assume min value of array equal to current index
+        min = sortedArray[i];
+
+        //inner loop iterates over other elements in array (not the values we have already looped over)
+        for (let j = i + 1; j < sortedArray.length; j += 1) {
+          //compare current index for next lowest value
+          if (compare(min, sortedArray[j]) > 0) {
+            min = sortedArray[j];
+            index = j;
+          }
+        }
+
+        //store the oringal index value 
+        temp = sortedArray[i];
+        //update current index value to next lowest value found in the inner loop
+        sortedArray[i] = min;
+        //swap the stored value with the place of the next lowest value we found
+        sortedArray[index] = temp;
+      }
+      //end timer and add it to total
+      let timerEnd = performance.now();
+      running_time = timerEnd - timerStart;
+      total_time += running_time;
+    }
+    console.info(`Selection Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
+  }
+}
+    </code></pre>
+      </p>
+      <br>
+      <h3>Part 4 Results: </h3>
+      <table class="table table-bordered">
+        <tr>
+          <th>Number Of Items Sorted</th>
+          <th>Average Running Time</th>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>0.28921499953139573 ms</td>
+        </tr>
+        <tr>
+          <td>2500</td>
+          <td>5.522815000382252 ms</td>
+        </tr>
+        <tr>
+          <td>5000</td>
+          <td>21.403805000329157 ms</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="content-container" style="height: auto;">
+    <h3>Sorting Demo: </h3>
+    <p>
+      Select a button below to run the sorting algorithm (there may be a delay in results printing)
+    </p>
+    <div class="container" style="text-align: left;">
+      <div class="tbl margin-top">
+        <div>
+          <div>
+            <div class="list-group">
+              <button id="bs500" class="list-group-item list-group-item-success" onclick="bubbleSort2(500,1000)">Run
+                Bubble Sort For Array Of 500 Integers - bubbleSort2(500,1000)</button>
+              <button id="bs2500" class="list-group-item list-group-item-success" onclick="bubbleSort2(2500,1000)">Run
+                Bubble Sort For Array Of 2500 Integers - bubbleSort2(2500,1000)</button>
+              <button id="bs5000" class="list-group-item list-group-item-success" onclick="bubbleSort2(5000,1000)">Run
+                Bubble Sort For Array Of 5000 Integers - bubbleSort2(5000,1000)</button>
+              <button id="bs5000" class="list-group-item list-group-item-info" onclick="selectionSort2(500,1000)">Run
+                Selection Sort For Array Of 500 Integers - selectionSort2(500,1000)</button>
+              <button id="bs5000" class="list-group-item list-group-item-info" onclick="selectionSort2(2500,1000)">Run
+                Selection Sort For Array Of 2500 Integers - selectionSort2(2500,1000)</button>
+              <button id="bs5000" class="list-group-item list-group-item-info" onclick="selectionSort2(5000,1000)">Run
+                Selection Sort For Array Of 5000 Integers - selectionSort2(5000,1000)</button>
+            </div>
+          </div>
+          <label class="show">
+            <span>Console output:</span>
+            <!-- <input id="text" class="form-control" value="Alorel/console-log-html" /> -->
+          </label>
+          <div>
+            <ul id="target"></ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="list-group">
+        <button class="list-group-item list-group-item-warning" onclick="console.clear()">Clear Console</button>
+      </div>
+    </div>
+  </div>
+  <div class="graph-container">
+    <canvas id="myChart" width="50" height="50"></canvas>
+    <script>
+      var ctx = document.getElementById('myChart');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    </script>
+  </div>
+</body>
+
+</html>
