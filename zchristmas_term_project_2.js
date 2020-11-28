@@ -8,7 +8,7 @@ function selectionSort1() {
     //use input to generate array of random integers
     let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
     //display unsorted array to user
-    console.log(`Unsorted Array: ${unsortedArray}`);
+    alert(`Unsorted Array: ${unsortedArray}`);
 
     //define compare function for selection sort
     function compare(a, b) {
@@ -45,10 +45,10 @@ function selectionSort1() {
       sortedArray[index] = temp;
     }
 
-    console.log(`Sorted Array: ${sortedArray}`);
+    alert(`Sorted Array: ${sortedArray}`);
 
   }
   else {
-    console.error('User input error!');
+    alert('User input error!');
   }
 }

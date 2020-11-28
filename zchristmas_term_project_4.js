@@ -1,5 +1,5 @@
 function selectionSort2(arraySize, numOfArrays) {
-  console.info(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
+  console.log(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
   let total_time = 0;
   //prompt the user for a number  
   let input = arraySize;
@@ -8,6 +8,7 @@ function selectionSort2(arraySize, numOfArrays) {
     for (let i = 0; i < numOfArrays; i++) {
       //use input to generate array of random integers
       let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
+      console.log(`Unsorted array #${i + 1}: ${unsortedArray}`);
 
       //define compare function for selection sort
       function compare(a, b) {
@@ -49,10 +50,11 @@ function selectionSort2(arraySize, numOfArrays) {
       }
       //end timer and add it to total
       let timerEnd = performance.now();
+      console.log(`Sorted array #${i + 1}: ${sortedArray}`);
       running_time = timerEnd - timerStart;
       total_time += running_time;
     }
-    console.info(`Selection Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
+    console.log(`Selection Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
   }
 }
 

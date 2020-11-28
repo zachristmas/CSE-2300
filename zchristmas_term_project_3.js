@@ -1,5 +1,5 @@
 function bubbleSort2(arraySize, numOfArrays) {
-  console.info(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
+  console.log(`Array Size: ${arraySize} Number of arrays: ${numOfArrays}`);
   let total_time = 0;
   //prompt the user for a number  
   let input = arraySize
@@ -8,7 +8,7 @@ function bubbleSort2(arraySize, numOfArrays) {
     for (let i = 0; i < numOfArrays; i++) {
       //use input to generate array of random integers
       let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
-      //console.log(`Unsorted array #${i + 1}: ${unsortedArray}`);
+      console.log(`Unsorted array #${i + 1}: ${unsortedArray}`);
       //init variables
       let swapp = false;
       //set variable for iteration count
@@ -40,13 +40,13 @@ function bubbleSort2(arraySize, numOfArrays) {
         //decrement iteration count
         n--;
       } while (swapp);
-      //console.log(`Sorted array #${i + 1}: ${sortedArray}`);
+      console.log(`Sorted array #${i + 1}: ${sortedArray}`);
       //end timer and add it to total
       let timerEnd = performance.now();
       running_time = timerEnd - timerStart;
       total_time += running_time;
     }
-    console.info(`Bubble Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
+    console.log(`Bubble Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
   }
 }
 
