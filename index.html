@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
-  <!-- <script type="text/javascript" src="https://cdn.rawgit.com/Alorel/console-log-html/1.2.7/console-log-html.min.js"></script> -->
   <script type="text/javascript" src="https://cdn.rawgit.com/beatgammit/base64-js/master/base64js.min.js"></script>
   <script type="text/javascript"
     src="https://cdn.rawgit.com/Alorel/console-log-html/a40aea9e88bfff88da77b0d4ca2b9903973425c3/console-log-html.min.js"></script>
@@ -24,7 +23,6 @@
   <script type="text/javascript" src="./zchristmas_term_project_4.js"></script>
   <script type="text/javascript" src="./zchristmas_term_project_5.js"></script>
   <script type="text/javascript" src="./particles.js"></script>
-
 </head>
 
 <body>
@@ -462,7 +460,7 @@ function selectionSort2(arraySize, numOfArrays) {
   <br>
   <hr>
   <br>
-  <div class="graph-container">
+  <div class="graph-container" style="height: auto;">
     <h3>Part 5 Graph: </h3>
     <canvas id="myChart" width="75" height="75"></canvas>
     <script>
@@ -516,6 +514,57 @@ function selectionSort2(arraySize, numOfArrays) {
       });
     </script>
   </div>
+  <br>
+  <hr>
+  <br>
+  <div class="content-container" style="height: auto; background-color: white;">
+    <h3 style="padding: 20px;">Part 6 Observation Report: </h3>
+    <div style="text-align:left; padding: 20px;">
+    <h4>Machine Specifications: </h4>
+    <ul>
+      <li><strong>Processor</strong>: 2.3 GHz Intel Core i7</li>
+      <li><strong>Memory</strong>: 16 GB 1600 MHz DDR3</li>
+      <li><strong>Graphics</strong>: Intel HD Graphics 4000 1536 MB</li>
+      <li><strong>Browser</strong>: Google Chrome - Version 87.0.4280.67</li>
+      <li><strong>JS Engine</strong>:<a href="https://opensource.google/projects/v8">V8</a></li>
+    </ul>
+    <br>
+    <h4>Observations: </h4>
+    <p>
+      I chose JavaScript as the language to use for this experiment for a few reasons. The primary reason is that
+      most modern browsers support JS, and most computers have a modern browser - so anyone should be able to run this demo 
+      on their own computer or phone. Another reason is that it is easy to write code and debug directly in the console. No 
+      need to install any SDKs, runtimes, etc. The final reason is that it is a single-threaded language, so we can accurately
+      measure the performance of these algorithms without worrying about any type of concurrency happening.
+    </p>
+    <p>
+      Looking at the results of the experiment, I have concluded that between the selection sort and bubble sort,
+      the selection sort is the most performant. Knowing that both the bubble sort and selection sort algorithms have 
+      an O(n^2) complexity, the difference can be found using the knowledge of complexity analysis this course has taught us. 
+    </p>
+    <p>
+      Both algorithms have a worst-case scenario of O(n^2), but what I found was interesting is that the bubble sort actually
+      has a better best-case scenario of O(n). We can't only look at the best and worse case scenarios to determine what 
+      algorithm will perform the best, but we must also take into account the average number of comparisons between both 
+      of these different sorting algorithms.
+    </p>
+    <p>
+      Between the bubble sort and the selection sort, the selection sort greatly reduces the number of comparisons made between 
+      elements in a collection. This is the reason that selection sort is favored over bubble sort. When using a selection sort, 
+      the algorithm will swap <i>n</i> times at most. Bubble sort almost swaps <i>n*(n-1)</i> times. Swap times in these algorithms 
+      have the biggest impact on memory and performance, so the less swaps, the better.
+    </p>
+    <p>
+      You can take my word for the performance of these two algorithms, but it can also be backed by data. 
+      For an array of 500 integers, the selection sort performed a little more than twice as fast as the bubble sort. 
+      When we scale that up x5 to 2500 integers, the selection sort performed more than three times the speed of the bubble sort.
+      Finally at 5000 integers the selection sort performed four times faster than the bubble sort. Keeping this in mind, we can 
+      determine that as the size of the collection increases, the difference between the performance of the selection sort and bubble 
+      sort increases almost exponentially!
+    </p>
+  </div>
+  </div>
+  <br>
 </body>
 
 </html>
