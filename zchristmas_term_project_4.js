@@ -9,18 +9,15 @@ function selectionSort2(arraySize, numOfArrays) {
       //use input to generate array of random integers
       let unsortedArray = [...Array(Number.parseInt(input))].map(() => Math.floor(Math.random() * (Number.parseInt(input) * 10)));
       console.log(`Unsorted array #${i + 1}: ${unsortedArray}`);
-
       //define compare function for selection sort
       function compare(a, b) {
         return a - b;
       }
-
       //declare and set starting variables
       let min = 0;
       let index = 0;
       let temp = 0;
       let sortedArray = unsortedArray;
-
       //init timer
       let running_time = 0;
       //start timer
@@ -57,7 +54,3 @@ function selectionSort2(arraySize, numOfArrays) {
     console.log(`Selection Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
   }
 }
-
-// selectionSort(500, 1000);
-// selectionSort(2500, 1000);
-// selectionSort(5000, 1000);

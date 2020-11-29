@@ -49,7 +49,3 @@ function bubbleSort2(arraySize, numOfArrays) {
     console.log(`Bubble Sorted ${numOfArrays} arrays containing ${arraySize} elements each in an average of ${total_time/numOfArrays} ms`);
   }
 }
-
-// bubbleSort(500, 1000);
-// bubbleSort(2500, 1000);
-// bubbleSort(5000, 1000);
